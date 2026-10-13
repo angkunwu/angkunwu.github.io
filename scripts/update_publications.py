@@ -42,7 +42,7 @@ def render(kind, fields):
     escape = html.escape
     title = tex_text(fields['title'])
     authors = []
-    for author in fields['author'].split(' and '):
+    for author in re.split(r'\s+and\s+', fields['author'].strip()):
         name = tex_text(author)
         if ',' in name:
             last, first = name.split(',', 1)
@@ -52,23 +52,31 @@ def render(kind, fields):
             escaped = '<strong>' + escaped + '</strong>'
         authors.append(escaped)
     year = tex_text(fields['year'])
-    url = fields.get('url') or ('https://doi.org/' + fields['doi'] if fields.get('doi') else 'https://arxiv.org/abs/' + fields['eprint'])
+    url = fields.get('url') or ('https://doi.org/' + fields['doi'] if fields.get('doi') else
+                              'https://arxiv.org/abs/' + fields['eprint'] if fields.get('eprint') else None)
     if kind == 'article':
         venue = tex_text(fields['journal'])
         if fields.get('volume'): venue += ' ' + tex_text(fields['volume'])
         if fields.get('pages'): venue += ', ' + tex_text(fields['pages'])
         venue += ' (' + year + ')'
     else:
-        venue = 'arXiv:' + fields['eprint'] + ' · Preprint (' + year + ')'
+        venue = ('arXiv:' + fields['eprint'] + ' · Preprint (' + year + ')' if fields.get('eprint')
+                 else 'Manuscript in preparation (' + year + ')')
     note = fields.get('addendum', '')
     code = re.search(r'\\url\{([^}]+)\}', note)
     if code:
-        note_html = f'<p class="paper-note"><a href="{escape(code.group(1), quote=True)}">Source code ↗</a></p>'
+        remaining_note = re.sub(r'(?:;\s*)?code:\s*\\url\{[^}]+\}', '', note, flags=re.I).strip()
+        if not fields.get('eprint') and remaining_note.lower() == 'manuscript in preparation':
+            remaining_note = ''
+        note_html = (f'<p class="paper-note">{escape(tex_text(remaining_note))}</p>' if remaining_note else '')
+        note_html += f'<p class="paper-note"><a href="{escape(code.group(1), quote=True)}">Source code ↗</a></p>'
     elif note:
         note_html = f'<p class="paper-note">{escape(tex_text(note))}</p>'
     else:
         note_html = ''
-    return f'''    <li class="publication" data-type="{kind}"><span class="publication-year">{escape(year)}</span><div><h3><a href="{escape(url, quote=True)}">{escape(title)}</a></h3><p>{', '.join(authors)}</p><p class="venue">{escape(venue)}</p>{note_html}</div></li>'''
+    title_html = f'<a href="{escape(url, quote=True)}">{escape(title)}</a>' if url else escape(title)
+    display_type = 'preparation' if kind == 'misc' and not fields.get('eprint') else kind
+    return f'''    <li class="publication" data-type="{display_type}"><span class="publication-year">{escape(year)}</span><div><h3>{title_html}</h3><p>{', '.join(authors)}</p><p class="venue">{escape(venue)}</p>{note_html}</div></li>'''
 
 def main():
     entries = list(parse_bib((ROOT / 'assets/publications.bib').read_text()))

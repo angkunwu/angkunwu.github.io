@@ -1,8 +1,8 @@
 # Ang-Kun Wu — personal website
 
-Static personal website for **https://angkunwu.github.io/**. Content updated October 6, 2026.
+Static personal website for **https://angkunwu.github.io/**. Content updated October 13, 2026.
 
-The site includes research interests, all 22 bibliography entries, five open-source projects, full research experience, education, honors, technical skills, training, talks, teaching, and peer-review service. Publication searching and filtering are optional JavaScript enhancements; the full content is available without JavaScript. Fonts, styles, scripts, illustration, and bibliography are local assets.
+The site includes research interests, 22 papers and preprints plus one manuscript in preparation, six open-source projects, full research experience, education, honors, technical skills, training, talks, teaching, and peer-review service. Publication searching and filtering are optional JavaScript enhancements; the full content is available without JavaScript. Fonts, styles, scripts, illustration, and bibliography are local assets.
 
 ## Preview locally
 
@@ -35,7 +35,7 @@ The `.nojekyll` file tells branch-based GitHub Pages publishing to skip Jekyll p
 python3 scripts/update_publications.py
 ```
 
-The Python script rewrites only the publication block, preserving the rest of the page. It keeps papers in descending year order while preserving bibliography order within a year. Publication status comes from the bibliography (`article` versus `misc`), including the “in press” note where supplied.
+The Python script rewrites only the publication block, preserving the rest of the page. It keeps papers in descending year order while preserving bibliography order within a year. Publication status comes from the bibliography (`article` versus `misc`), including the “in press” note where supplied. Manuscripts without an arXiv identifier are displayed as in preparation, with no fabricated paper link; available source-code links are retained. Optional filters do not split the default chronological list.
 
 - Update the bibliography date note and footer when refreshing the content.
 
