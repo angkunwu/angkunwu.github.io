@@ -1,34 +1,17 @@
-% ============================================================================
-%  publications.bib  --  Angkun Wu
-% ----------------------------------------------------------------------------
-%  How this file is used by cv.tex (biblatex + biber):
-%
-%  * Entries are printed in the order they appear in THIS FILE and numbered
-%    1, 2, 3, ... from the top, so add new papers at the top.
-%  * author+an = {N=highlight} prints the N-th author (you) in bold.
-%  * The journal reference (or arXiv number) becomes a link. Priority:
-%    url field  >  doi  >  arXiv eprint.
-%  * Published papers are "article" entries: journal, volume, pages
-%    (= article number), year, doi.  Preprints are "misc" entries with
-%    eprint = arXiv number.  addendum = {...} is printed in parentheses
-%    at the end (e.g. Editors' Suggestion).
-%  * When a preprint is published, change its type to article and add
-%    journal, volume, pages and doi.
-%
-%  (Note: do not type the at-sign in these comment lines; BibTeX/biber would
-%   try to read it as the start of an entry.)
-% ============================================================================
+% Publications for Ang-Kun Wu. Regenerate index.html with scripts/update_publications.py.
+% Public addenda include source-code links and published editorial distinctions.
 
 % ---------------------------------------------------------------- 2026 -------
 
 @misc{wu2026identifiability,
-  author     = {Wu, Ang-Kun and Dahlbom, David A. and Batista, Cristian D. and
-                Zhang, Hao},
+  author     = {Wu, Ang-Kun and Dahlbom, David A. and Barros, Kipton and
+                Batista, Cristian D. and Zhang, Hao},
   author+an  = {1=highlight},
-  title      = {Identifiability and Neural-Network Inference of Microscopic
-                {Hamiltonians} from Dynamic Spin Structure Factors},
+  title      = {Learning Spin {Hamiltonians} from Interacting Magnon Spectra},
   year       = {2026},
-  addendum   = {Manuscript in preparation; code: \url{https://github.com/angkun-research/SpinDynamicsML}},
+  eprint     = {2611.25321},
+  eprinttype = {arxiv},
+  addendum   = {Code: \url{https://github.com/angkun-research/SpinDynamicsML}},
 }
 
 @misc{wu2026geometric,
@@ -101,17 +84,16 @@
   doi        = {10.1103/jmk4-46tj},
 }
 
-@misc{wu2025realization,
+@article{wu2025realization,
   author     = {Wu, Q. and Cui, J. and Wu, A.-K. and Meng, Y. and Chen, D. and
-                Yan, L. and Ma, L. and Taniguchi, T. and Watanabe, K. and
+                Wang, Y. and Yan, L. and Ma, L. and Taniguchi, T. and Watanabe, K. and
                 Lin, S.-Z. and Shi, S.-F. and Cui, Y.-T.},
   author+an  = {3=highlight},
-  title      = {Realization of a {Kondo} Insulator in a Multilayer Moir{\'e}
+  title      = {Signatures of a {Kondo} insulator in a multilayer moir{\'e}
                 Superlattice},
-  year       = {2025},
-  eprint     = {2507.01329},
-  eprinttype = {arxiv},
-  addendum   = {Nat. Commun., in press},
+  journal    = {Nat. Commun.},
+  year       = {2026},
+  doi        = {10.1038/s41467-026-78687-3},
 }
 
 @article{grindall2025separate,

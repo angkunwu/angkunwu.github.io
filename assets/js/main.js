@@ -17,6 +17,10 @@ function filterPapers() {
 }
 if (controls && search) {
   controls.hidden = false;
+  const availableTypes = new Set(papers.map(paper => paper.dataset.type));
+  filters.forEach(button => {
+    button.hidden = button.dataset.filter !== 'all' && !availableTypes.has(button.dataset.filter);
+  });
   filters.forEach(button => button.addEventListener('click', () => {
     selectedType = button.dataset.filter;
     filters.forEach(filter => {

@@ -1,8 +1,8 @@
 # Ang-Kun Wu — personal website
 
-Static personal website for **https://angkunwu.github.io/**. Content updated October 13, 2026.
+Static personal website for **https://angkunwu.github.io/**. Content updated November 20, 2026.
 
-The site includes research interests, 22 papers and preprints plus one manuscript in preparation, six open-source projects, full research experience, education, honors, technical skills, training, talks, teaching, and peer-review service. Publication searching and filtering are optional JavaScript enhancements; the full content is available without JavaScript. Fonts, styles, scripts, illustration, and bibliography are local assets.
+The site includes research interests, 17 journal articles and 6 preprints, eight software projects, research experience, education, honors, technical skills, applied projects, talks, teaching, and peer-review service. The full publication list is available without JavaScript. Search and filters appear when JavaScript is enabled. Fonts, styles, scripts, illustration, and bibliography are local assets.
 
 ## Preview locally
 
@@ -29,15 +29,15 @@ The `.nojekyll` file tells branch-based GitHub Pages publishing to skip Jekyll p
 
 - Edit the biography, experience, research, software, teaching, and talks directly in `index.html`.
 - Edit styling in `assets/css/style.css` and publication interactions in `assets/js/main.js`.
-- To refresh publications, update `assets/publications.bib`, then run:
+- To refresh publications, update the public copy at `assets/publications.bib`. Keep source-code links and published distinctions in the addenda. Then run the generator.
 
 ```sh
 python3 scripts/update_publications.py
 ```
 
-The Python script rewrites only the publication block, preserving the rest of the page. It keeps papers in descending year order while preserving bibliography order within a year. Publication status comes from the bibliography (`article` versus `misc`), including the “in press” note where supplied. Manuscripts without an arXiv identifier are displayed as in preparation, with no fabricated paper link; available source-code links are retained. Optional filters do not split the default chronological list.
+The Python script rewrites the publication block and keeps papers in descending year order, preserving bibliography order within each year. Published papers use `article`, and preprints use `misc` with an arXiv identifier. The renderer displays `misc` entries without an arXiv identifier as manuscripts in preparation and includes any supplied source-code links. Filters appear for categories with entries.
 
-- Update the bibliography date note and footer when refreshing the content.
+- Update the publication count and revision date in `index.html` and this README. Set the sitemap's `lastmod` to the publication date when deploying.
 
 Use **Ang-Kun Wu** as the public display name, matching the publication name. The GitHub username, site URL, email address, and linked profile URLs retain their existing spelling. The AW favicon uses the initials of the given name and surname.
 
