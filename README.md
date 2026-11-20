@@ -39,6 +39,6 @@ The Python script rewrites the publication block and keeps papers in descending 
 
 - Update the publication count and revision date in `index.html` and this README. Set the sitemap's `lastmod` to the publication date when deploying.
 
-Use **Ang-Kun Wu** as the public display name, matching the publication name. The GitHub username, site URL, email address, and linked profile URLs retain their existing spelling. The AW favicon uses the initials of the given name and surname.
+Use **Ang-Kun Wu** for the profile and **A.-K. Wu** in publication author lists. Use initials for all authors in the public BibTeX and preserve the author order from each paper. The AW favicon uses the initials of the given name and surname.
 
 Introduce the author as a **theoretical and computational physicist**. Use direct descriptions of research and straightforward section headings; omit decorative numbering, portfolio slogans, and illustration captions. Keep the lattice as an abstract illustration. Employment titles belong in the Experience section. Keep the website self-contained: include experience and accomplishments in the page rather than publishing CV PDFs or download links.
