@@ -2,7 +2,7 @@
 
 Static personal website for **https://angkunwu.github.io/**. Content updated November 20, 2026.
 
-The site includes research interests, 17 journal articles and 6 preprints, eight software projects, research experience, education, honors, technical skills, applied projects, talks, teaching, and peer-review service. The full publication list is available without JavaScript. Search and filters appear when JavaScript is enabled. Fonts, styles, scripts, illustration, and bibliography are local assets.
+The site includes research interests, 17 journal articles and 6 preprints, ten software projects, research experience, education, honors, technical skills, applied projects, talks, teaching, and peer-review service. The full publication list is available without JavaScript. Search and filters appear when JavaScript is enabled. Fonts, styles, scripts, illustration, and bibliography are local assets.
 
 ## Preview locally
 
